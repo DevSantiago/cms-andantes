@@ -15,7 +15,17 @@ module.exports = [
       },
     },
   },
-  'strapi::cors',
+  {
+    name: 'strapi::cors',
+    config: {
+      origin: '*',
+      methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+      allowedHeaders: '*',
+      exposedHeaders: '*',
+      credentials: true,
+      maxAge: 60,
+    },
+  },
   'strapi::poweredBy',
   'strapi::query',
   'strapi::body',

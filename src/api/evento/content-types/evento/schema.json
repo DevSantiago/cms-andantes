@@ -4,7 +4,8 @@
   "info": {
     "singularName": "evento",
     "pluralName": "eventos",
-    "displayName": "evento"
+    "displayName": "evento",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,6 +17,15 @@
     },
     "Contenido": {
       "type": "richtext"
+    },
+    "url_img1": {
+      "type": "string"
+    },
+    "url_img2": {
+      "type": "string"
+    },
+    "url_img3": {
+      "type": "string"
     }
   }
 }

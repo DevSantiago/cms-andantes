@@ -368,6 +368,7 @@ export interface ApiEventoEvento extends Schema.CollectionType {
     singularName: 'evento';
     pluralName: 'eventos';
     displayName: 'evento';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -375,6 +376,9 @@ export interface ApiEventoEvento extends Schema.CollectionType {
   attributes: {
     Titulo: Attribute.String;
     Contenido: Attribute.RichText;
+    url_img1: Attribute.String;
+    url_img2: Attribute.String;
+    url_img3: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
