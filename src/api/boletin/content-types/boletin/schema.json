@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "boletins",
+  "info": {
+    "singularName": "boletin",
+    "pluralName": "boletins",
+    "displayName": "Boletin"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "TITULO": {
+      "type": "string",
+      "required": true
+    },
+    "SUBTITULO": {
+      "type": "string",
+      "required": true
+    },
+    "CONTENIDO": {
+      "type": "richtext"
+    }
+  }
+}
