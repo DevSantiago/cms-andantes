@@ -362,6 +362,73 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface ApiBoletinBoletin extends Schema.CollectionType {
+  collectionName: 'boletins';
+  info: {
+    singularName: 'boletin';
+    pluralName: 'boletins';
+    displayName: 'Boletin';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    TITULO: Attribute.String & Attribute.Required;
+    SUBTITULO: Attribute.String & Attribute.Required;
+    CONTENIDO: Attribute.RichText;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::boletin.boletin',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::boletin.boletin',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiEventoEvento extends Schema.CollectionType {
+  collectionName: 'eventos';
+  info: {
+    singularName: 'evento';
+    pluralName: 'eventos';
+    displayName: 'ruta';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Titulo: Attribute.String;
+    Contenido: Attribute.RichText;
+    url_img1: Attribute.String;
+    url_img2: Attribute.String;
+    url_img3: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::evento.evento',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::evento.evento',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -788,73 +855,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface ApiBoletinBoletin extends Schema.CollectionType {
-  collectionName: 'boletins';
-  info: {
-    singularName: 'boletin';
-    pluralName: 'boletins';
-    displayName: 'Boletin';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    TITULO: Attribute.String & Attribute.Required;
-    SUBTITULO: Attribute.String & Attribute.Required;
-    CONTENIDO: Attribute.RichText;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::boletin.boletin',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::boletin.boletin',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiEventoEvento extends Schema.CollectionType {
-  collectionName: 'eventos';
-  info: {
-    singularName: 'evento';
-    pluralName: 'eventos';
-    displayName: 'ruta';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Titulo: Attribute.String;
-    Contenido: Attribute.RichText;
-    url_img1: Attribute.String;
-    url_img2: Attribute.String;
-    url_img3: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::evento.evento',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::evento.evento',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -865,6 +865,8 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'api::boletin.boletin': ApiBoletinBoletin;
+      'api::evento.evento': ApiEventoEvento;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -873,8 +875,6 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'api::boletin.boletin': ApiBoletinBoletin;
-      'api::evento.evento': ApiEventoEvento;
     }
   }
 }
