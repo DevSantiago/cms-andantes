@@ -4,7 +4,6 @@ module.exports = ({ env }) => ({
       config: {
         provider: 'cloudinary',
         providerOptions: {
-
         },
         actionOptions: {
           upload: {},
